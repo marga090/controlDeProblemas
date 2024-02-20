@@ -1,4 +1,4 @@
-package controlDeProblemas.tecnico;
+package controlDeProblemas;
 
 
 
