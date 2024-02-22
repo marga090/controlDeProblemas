@@ -6,6 +6,7 @@ import controlDeProblemas.enumerado.EstadoOrdenador;
 
 
 public class Tarea {
+	//Atributos
 	private int id;
 	private String descripcion;
 	private Tecnico tecnico;
@@ -14,29 +15,33 @@ public class Tarea {
 	private String solucion;
 	private Date fecha;
 
+	//Atributos estatico
 	static int contId = 0;
 
-	// costructor
+	//Constructor
 	
-	public Tarea(Tecnico tecnico, int ordenador, String descripcion) {
-		this.id = this.contId + 1;
+	public Tarea(int ordenador, String descripcion) {
+		this.id = contId++;
 		this.descripcion = descripcion;
 		this.tecnico = null;
 		this.ordenador = ordenador;
 		this.estado = EstadoOrdenador.PENDIENTE;
-		this.contId++;
 	}
 
-	// metodo
+	// Método
+	
+	public void resolverTarea(Tecnico tecnico, String solucion) {
+        if (this.estado != EstadoOrdenador.PENDIENTE) {
+            throw new IllegalArgumentException("La tarea ya ha sido resuelta o no existe ningun problema asignado");
+        } else {
+        	this.tecnico = tecnico;
+            this.solucion = solucion;
+            this.estado = EstadoOrdenador.RESUELTA;
+            this.fecha = new Date();
+        }
+    }
 
-	public void resolverTarea(Tecnico tecnico,EstadoOrdenador estado, String solucion) {
-		this.tecnico = tecnico;
-		this.solucion = solucion;
-		this.estado = EstadoOrdenador.RESUELTA;
-		this.fecha = new Date();
-	}
-
-// geter y seter
+	//Getters y setters
 
 	public int getId() {
 		return id;
