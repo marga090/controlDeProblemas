@@ -1,9 +1,9 @@
-package controlDeProblemas.consultarProblema;
+package controlDeProblemas;
 
 import java.util.Date;
 
-import controlDeProblemas.consultarProblema.enumerados.EstadoOrdenador;
-import controlDeProblemas.users.Tecnico;
+import controlDeProblemas.enumerado.EstadoOrdenador;
+
 
 public class Tarea {
 	private int id;
